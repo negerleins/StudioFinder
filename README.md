@@ -1,5 +1,5 @@
 <div style="display: flex; align-items: center;">
-    <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="margin-right: 5px; width: 30%;">
+    <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="margin-right: 5px; width: 15%;">
     <div style="flex: 1;">
         StudioFinder - @negerleins
     </div>
