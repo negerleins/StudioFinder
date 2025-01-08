@@ -1,11 +1,11 @@
 <div style="display: flex; align-items: center;">
-    <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="margin-right: 20px;">
+    <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="margin-right: 20px; style="width: 45%;">
     <div>
         StudioFinder - @negerleins
     </div>
 </div>
 
-<img src="https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true" alt="Showcase1" style="width: 45%;">
+<img src="https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true" alt="Showcase1" style="width: 55%;">
 <img src="https://github.com/negerleins/StudioFinder/blob/main/img2.png?raw=true" alt="Showcase2" style="width: 45%;">
 
 ## Install/Update Command
