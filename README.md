@@ -1,6 +1,6 @@
 <div style="display: flex; align-items: center;">
     <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="margin-right: 10px; width: 30%;">
-    <div>
+    <div style="flex: 1;">
         StudioFinder - @negerleins
     </div>
 </div>
