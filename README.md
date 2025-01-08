@@ -1,4 +1,3 @@
-
 ![Showcase1](https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true)
 ![Showcase2](https://github.com/negerleins/StudioFinder/blob/main/img2.png?raw=true)
 
