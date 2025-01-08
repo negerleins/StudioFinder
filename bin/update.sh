@@ -5,7 +5,7 @@ GITHUB_USER="negerleins"
 GITHUB_REPO="StudioFinder"
 
 # Local version
-LOCAL_VERSION="1.0.1"
+LOCAL_VERSION="1.0.2"
 
 notify_os() {
     local os_name
