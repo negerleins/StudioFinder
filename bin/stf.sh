@@ -4,9 +4,13 @@
 # Get the script directory
 SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 export SCRIPT_PATH="$SCRIPT_DIR/config.sh"
+export UPDATE_SCRIPT="$SCRIPT_DIR/update.sh"
 
 # source utility.sh
 source "$SCRIPT_PATH" || { echo "Failed to source config.sh"; exit 1; }
+
+# source update.sh
+source "$UPDATE_SCRIPT" || { echo "Failed to source update.sh"; exit 1; }
 
 # Exports associative array(s)
 export Config

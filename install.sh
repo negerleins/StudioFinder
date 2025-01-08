@@ -12,6 +12,27 @@ installer.unit() {
     installer['file']="$HOME/.local/share/applications/StudioFinder.desktop"
 }; installer.unit
 
+installer.check_existing() {
+    if [[ -d "${installer['bin']}/StudioFinder" || -f "${installer['file']}" ]]; then
+        read -p "Existing installation found. Do you want to delete previous data? (y/n): " choice
+        case "$choice" in
+            y|Y )
+                rm -rf "${installer['bin']}/StudioFinder"
+                rm -f "${installer['file']}"
+                echo "Previous data deleted."
+                ;;
+            n|N )
+                echo "Installation cancelled."
+                exit 0
+                ;;
+            * )
+                echo "Invalid input. Installation cancelled."
+                exit 1
+                ;;
+        esac
+    fi
+}; installer.check_existing
+
 installer.install() {
     mkdir -p "${installer['bin']}"
     cp -a "${installer['src_bin']}/." "${installer['bin']}/StudioFinder"
@@ -31,10 +52,8 @@ Type=Application
 Categories=Utility;
 EOF
 
-bash << EOF
-    chmod +x "${installer["file"]}"
-EOF
+chmod +x "${installer["file"]}"
 
-bash << EOF
-    update-desktop-database ~/.local/share/applications
-EOF
+update-desktop-database ~/.local/share/applications
+
+echo "Installation completed successfully."

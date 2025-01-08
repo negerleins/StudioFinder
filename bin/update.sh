@@ -5,7 +5,7 @@ GITHUB_USER="negerleins"
 GITHUB_REPO="StudioFinder"
 
 # Local version
-LOCAL_VERSION="1.0.0"
+LOCAL_VERSION="1.0.1"
 
 notify_os() {
     local os_name
@@ -86,10 +86,10 @@ echo "GitHub version: $GITHUB_VERSION"
 version_compare $LOCAL_VERSION $GITHUB_VERSION
 case $? in
     0)
-        notify_os "Your script is up to date (version $LOCAL_VERSION)."
+        notify_os "StudioFinder is up to date (version $LOCAL_VERSION)."
         ;;
     1)
-        notify_os "Your script version ($LOCAL_VERSION) is ahead of the GitHub version ($GITHUB_VERSION)."
+        notify_os "Your StudioFinder version ($LOCAL_VERSION) is ahead of the GitHub version ($GITHUB_VERSION)."
         ;;
     2)
         notify_os "A new version ($GITHUB_VERSION) is available on GitHub. Current version: $LOCAL_VERSION"
