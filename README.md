@@ -1,6 +1,6 @@
 
-![StudioFinder Logo](https://example.com/path/to/logo.png)
-![Screenshot](https://example.com/path/to/screenshot.png)
+![Showcase1](https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true)
+![Showcase2](https://github.com/negerleins/StudioFinder/blob/main/img2.png?raw=true)
 
 ## Install/Update Command
 ```sh
