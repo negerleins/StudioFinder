@@ -1,9 +1,8 @@
 <div style="display: flex; align-items: center;">
-    <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="margin-right: 5px; width: 15%;">
-    <div style="flex: 1;">
-        StudioFinder - @negerleins
-    </div>
+    <img src="https://github.com/negerleins/StudioFinder/blob/main/bin/logo.png?raw=true" alt="Logo" style="width: 100px; margin-right: 20px;">
+    <h1>StudioFinder - @negerleins</h1>
 </div>
+
 
 <img src="https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true" alt="Showcase1" style="width: 55%;">
 <img src="https://github.com/negerleins/StudioFinder/blob/main/img2.png?raw=true" alt="Showcase2" style="width: 55%;">
