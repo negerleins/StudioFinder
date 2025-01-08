@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ![Showcase1](https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true)
 ![Showcase2](https://github.com/negerleins/StudioFinder/blob/main/img2.png?raw=true)
+=======
+![Showcase1](https://github.com/negerleins/StudioFinder/blob/main/s_img1.png?raw=true)
+![Showcase2](https://github.com/negerleins/StudioFinder/blob/main/s_img2.png?raw=true)
+>>>>>>> 497288b (main)
 
 ## Install/Update Command
 ```sh
