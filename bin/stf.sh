@@ -16,8 +16,16 @@ source "$UPDATE_SCRIPT" || { echo "Failed to source update.sh"; exit 1; }
 export Config
 
 EXECUTABLE=$(find "${Config["VINEGAR_DIR"]}" -name "${Config["EXECUTABLE"]}" 2>/dev/null)
+COMMAND="WINEPREFIX=\"${Config["WINEPREFIX"]}\" GAMEID=\"${Config["GAMEID"]}\" PROTON_VERB=runinprefix PROTONPATH=\"${Config["PROTONPATH"]}\" ${Config["RUN"]} \"${EXECUTABLE}\""
 
 # Run the script
 bash << EOF
-    WINEPREFIX="${Config["WINEPREFIX"]}" GAMEID="${Config["GAMEID"]}" PROTONPATH="${Config["PROTONPATH"]}" ${Config["RUN"]} "${EXECUTABLE}"
+    echo "EXECUTABLE path: $EXECUTABLE"
+    echo "Running command: $COMMAND"
+    $COMMAND
 EOF
+
+
+# GAMEID=0 PROTON_VERB=runinprefix umu-run app1.exe
+# protontricks-launch --appid <steam_appid> <path_to_exe1>
+# WINEPREFIX="/path/to/prefix" PROTON_PATH="/path/to/proton" \"$PROTON_PATH/proton" run ./app2.exe &
