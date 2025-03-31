@@ -123,10 +123,6 @@ check_dependencies() {
         missing_deps+=("umu-run")
     fi
 
-    if ! command -v zenity &> /dev/null; then
-        missing_deps+=("zenity")
-    fi
-
     if [ ${#missing_deps[@]} -ne 0 ]; then
         notify_os "Missing dependencies: ${missing_deps[*]}"
         exit 1
