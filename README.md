@@ -8,7 +8,12 @@
 
 ## Install/Update Command  [MAKEPKG]
 ```sh
-curl -s https://api.github.com/repos/negerleins/StudioFinder/releases/latest StudioFinder | grep "browser_download_url.*release.tar.gz" | cut -d : -f 2,3 | tr -d \" | wget -qi - -O - | tar -xz -C ~/ && sleep 1 && cd ~/StudioFinder && makepkg -si --noconfirm
+wget https://github.com/negerleins/StudioFinder/releases/latest/download/release.tar.gz
+```
+```sh
+tar -xvzf release.tar.gz && mv bin StudioFinder
+cd StudioFinder
+makepkg -s --noconfirm --install
 ```
 
 ## Install/Update Command [OLD]
