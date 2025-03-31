@@ -5,8 +5,8 @@ declare -A Config
 
 Config.Set() {
     Config["EXECUTABLE"]="RobloxStudioBeta.exe"
-    Config["VINEGAR_DIR"]="$HOME/.local/share/vinegar/versions/"
-    Config["WINEPREFIX"]="$HOME/.local/share/vinegar/prefixes/studio"
+    Config["VINEGAR_DIR"]="$HOME/.var/app/org.vinegarhq.Vinegar/data/vinegar/versions/"
+    Config["WINEPREFIX"]="$HOME/.var/app/org.vinegarhq.Vinegar/data/vinegar/prefixes/studio"
     Config["GAMEID"]="0"
     Config["PROTONPATH"]="GE-Proton"
     Config["RUN"]="umu-run"

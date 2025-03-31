@@ -6,7 +6,12 @@
 <img src="https://github.com/negerleins/StudioFinder/blob/main/img1.png?raw=true" alt="Showcase1" style="width: 65%;">
 <img src="https://github.com/negerleins/StudioFinder/blob/main/img2.png?raw=true" alt="Showcase2" style="width: 35%;">
 
-## Install/Update Command
+## Install/Update Command  [MAKEPKG]
+```sh
+curl -s https://api.github.com/repos/negerleins/StudioFinder/releases/latest StudioFinder | grep "browser_download_url.*release.tar.gz" | cut -d : -f 2,3 | tr -d \" | wget -qi - -O - | tar -xz -C ~/ && sleep 1 && cd ~/StudioFinder && makepkg -si --noconfirm
+```
+
+## Install/Update Command [OLD]
 ```sh
 curl -s https://api.github.com/repos/negerleins/StudioFinder/releases/latest | grep "browser_download_url.*release.tar.gz" | cut -d : -f 2,3 | tr -d \" | wget -qi - -O - | tar -xz -C ~/ && sleep 1 && bash ~/StudioFinder/install.sh
 ```

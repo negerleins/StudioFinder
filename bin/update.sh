@@ -5,21 +5,22 @@ GITHUB_USER="negerleins"
 GITHUB_REPO="StudioFinder"
 
 # Local version
-LOCAL_VERSION="1.0.4"
+LOCAL_VERSION="1.0.6"
 
 notify_os() {
     local os_name
     local notification_command
-    local message="${1:-"A new update is available"}"  # Default message if none provided
+    local message="${1:-"A new update is available"}"
+    local timeout=10000
 
     # Detect OS
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         os_name="Linux"
-        notification_command="notify-send"
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        notification_command="notify-send -t $timeout"
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
         os_name="macOS"
         notification_command="osascript -e"
-    elif [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]; then
+        elif [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]; then
         os_name="Windows"
         notification_command="msg *"
     else
@@ -32,17 +33,18 @@ notify_os() {
     case $os_name in
         "Linux")
             $notification_command "Update Notification" "$message"
-            ;;
+        ;;
         "macOS")
             $notification_command "display notification \"$message\" with title \"Update Notification\""
-            ;;
+        ;;
         "Windows")
             $notification_command "$message"
-            ;;
+        ;;
     esac
 
     echo "Notification sent on $os_name: $message"
 }
+
 
 fetch_github_version() {
     curl -s "https://api.github.com/repos/$GITHUB_USER/$GITHUB_REPO/releases/latest" |
@@ -87,11 +89,11 @@ version_compare $LOCAL_VERSION $GITHUB_VERSION
 case $? in
     0)
         notify_os "StudioFinder is up to date (version $LOCAL_VERSION)."
-        ;;
+    ;;
     1)
         notify_os "Your StudioFinder version ($LOCAL_VERSION) is ahead of the GitHub version ($GITHUB_VERSION)."
-        ;;
+    ;;
     2)
         notify_os "A new version ($GITHUB_VERSION) is available on GitHub. Current version: $LOCAL_VERSION"
-        ;;
+    ;;
 esac

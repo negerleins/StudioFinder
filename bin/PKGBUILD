@@ -1,0 +1,46 @@
+# Maintainer: blacksmith (@negerleins)
+
+pkgname=studiofinder
+pkgver=1.0
+pkgrel=1
+pkgdesc="Find Roblox Studio"
+arch=('any')
+license=('MIT')
+depends=('bash')
+source=("stf.sh"
+        "logo.png"
+        "config.sh"
+        "update.sh")
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
+
+package() {
+    # Create directories
+    mkdir -p "${pkgdir}/usr/bin/StudioFinder"
+    mkdir -p "${pkgdir}/usr/share/applications"
+
+    # Install binaries
+    # Install binaries
+    cp "${srcdir}/stf.sh" "${pkgdir}/usr/bin/StudioFinder/"
+    cp "${srcdir}/logo.png" "${pkgdir}/usr/bin/StudioFinder/"
+    cp "${srcdir}/config.sh" "${pkgdir}/usr/bin/StudioFinder/"
+    cp "${srcdir}/update.sh" "${pkgdir}/usr/bin/StudioFinder/"
+    chmod +x "${pkgdir}/usr/bin/StudioFinder/stf.sh"
+    chmod +x "${pkgdir}/usr/bin/StudioFinder/config.sh"
+    chmod +x "${pkgdir}/usr/bin/StudioFinder/update.sh"
+
+    # Create desktop file
+    cat << EOF > "${pkgdir}/usr/share/applications/StudioFinder.desktop"
+[Desktop Entry]
+Version=1.0
+Name=StudioFinder
+Comment=Find Roblox Studio
+Exec=/usr/bin/StudioFinder/stf.sh
+Icon=/usr/bin/StudioFinder/logo.png
+Terminal=false
+Type=Application
+Categories=Utility;
+EOF
+}
