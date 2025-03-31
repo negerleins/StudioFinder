@@ -8,12 +8,8 @@ arch=('any')
 license=('MIT')
 depends=('bash')
 source=("stf.sh"
-        "logo.png"
-        "config.sh"
-        "update.sh")
+        "logo.png")
 sha256sums=('SKIP'
-            'SKIP'
-            'SKIP'
             'SKIP')
 
 package() {
@@ -25,11 +21,7 @@ package() {
     # Install binaries
     cp "${srcdir}/stf.sh" "${pkgdir}/usr/bin/StudioFinder/"
     cp "${srcdir}/logo.png" "${pkgdir}/usr/bin/StudioFinder/"
-    cp "${srcdir}/config.sh" "${pkgdir}/usr/bin/StudioFinder/"
-    cp "${srcdir}/update.sh" "${pkgdir}/usr/bin/StudioFinder/"
     chmod +x "${pkgdir}/usr/bin/StudioFinder/stf.sh"
-    chmod +x "${pkgdir}/usr/bin/StudioFinder/config.sh"
-    chmod +x "${pkgdir}/usr/bin/StudioFinder/update.sh"
 
     # Create desktop file
     cat << EOF > "${pkgdir}/usr/share/applications/StudioFinder.desktop"
