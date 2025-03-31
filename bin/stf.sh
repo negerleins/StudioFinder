@@ -123,6 +123,10 @@ check_dependencies() {
         missing_deps+=("umu-run")
     fi
 
+    if ! command -v zenity &> /dev/null; then
+        missing_deps+=("zenity")
+    fi
+
     if [ ${#missing_deps[@]} -ne 0 ]; then
         notify_os "Missing dependencies: ${missing_deps[*]}"
         exit 1
@@ -177,24 +181,6 @@ ensure_gamemode_running() {
     fi
 }
 
-setup_gamemode_polkit() {
-    POLKIT_FILE="/etc/polkit-1/rules.d/90-gamemode.rules"
-    if [ ! -f "$POLKIT_FILE" ]; then
-        notify_os "Setting up GameMode polkit rules..."
-        echo "polkit.addRule(function(action, subject) {
-    if ((action.id == \"com.feralinteractive.GameMode.governor-set\" ||
-         action.id == \"com.feralinteractive.GameMode.renice\" ||
-         action.id == \"com.feralinteractive.GameMode.ioprio\" ||
-         action.id == \"com.feralinteractive.GameMode.inhibit\") &&
-        subject.isInGroup(\"gamemode\")) {
-            return polkit.Result.YES;
-    }
-        });" | sudo tee "$POLKIT_FILE" > /dev/null
-        sudo systemctl restart polkit.service
-        notify_os "GameMode polkit rules set up. You may need to log out and back in for changes to take effect."
-    fi
-}
-
 launch_new_instance() {
     EXECUTABLE=$(find "${Config["VINEGAR_DIR"]}" -name "${Config["EXECUTABLE"]}" 2>/dev/null)
 
@@ -234,7 +220,6 @@ launch_new_instance() {
 check_dependencies
 check_gamemode
 ensure_gamemode_running
-setup_gamemode_polkit
 check_and_set_gpu
 setup_compatibility
 configure_wine
